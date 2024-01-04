@@ -1,0 +1,19 @@
+///$tab Create Report
+ReportType_HTMLTable:
+LOAD
+	Region 							as [HTMLTable Region],
+    num(sum(Population), '#,##0') 	as [HTMLTable Region Population]
+RESIDENT TestData    
+GROUP BY Region
+;
+
+NoConcatenate
+ReportType_HTMLImage:
+LOAD
+	Region 				as [HTMLImage Region],
+    sum(Population) 	as [HTMLImage Region Population]
+    ,
+    round((sum(Population) / 1000), 1/1) 	as [HTMLImage Region Population Label]     
+RESIDENT TestData    
+GROUP BY Region
+;

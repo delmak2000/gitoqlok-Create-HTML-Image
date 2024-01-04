@@ -1,0 +1,26 @@
+///$tab Data
+// Data:
+// LOAD
+//     "Date",
+//     Zone,
+//     Branch,
+//     "Type",
+//     Account,
+//     CustomerName,
+//     Status
+// FROM [lib://Datasources-CSV/Employee.csv]
+// (txt, codepage is 28591, embedded labels, delimiter is ',', msq);
+
+
+TestData:
+LOAD * INLINE [
+    Region, State, Population
+    North, Bauchi, 50000
+    West, Ondo, 12000
+    South, Cross River, 25000
+    West, Ogun, 20000
+    South, Akwa Ibom, 19000
+    East, Imo, 22000    
+];
+
+// Exit Script;

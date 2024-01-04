@@ -1,0 +1,12 @@
+///$tab Create HTML - Image
+ImageOutput:
+LOAD
+// 	replace(
+    replace('<meta http-equiv=refresh content=10><img src="https://image-charts.com/chart?chbr=0&chco=0080ff&chd=a%3A' & concat([HTMLImage Region Population], '%2C') & '&chdl=Region%20Population&chdlp=r&chl='&concat([HTMLImage Region Population Label], '%7C')&'&chs=700x450&cht=bvs&chtt=Region%20Population&chxl=0%3A%7C' & concat([HTMLImage Region], '%7C') & '&chxs=1N%2A0sz%2A%2C000000&chxt=x%2Cy" alt="Static Chart"/>', '"', '')
+//     , ',', '&#44;')  
+    as [<!--ImageOutput-->]
+RESIDENT ReportType_HTMLImage
+;
+
+
+STORE ImageOutput INTO [lib://Datasources-HTML/ImageOutput.html] (txt);

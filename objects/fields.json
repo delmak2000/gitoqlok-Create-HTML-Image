@@ -1,0 +1,102 @@
+[
+  {
+    "qName": "<!--HTMLOutput-->",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "HTMLOutput"
+    ]
+  },
+  {
+    "qName": "<!--ImageOutput-->",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "ImageOutput"
+    ]
+  },
+  {
+    "qName": "HTMLImage Region",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "ReportType_HTMLImage"
+    ]
+  },
+  {
+    "qName": "HTMLImage Region Population",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "ReportType_HTMLImage"
+    ]
+  },
+  {
+    "qName": "HTMLImage Region Population Label",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "ReportType_HTMLImage"
+    ]
+  },
+  {
+    "qName": "HTMLTable Region",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "ReportType_HTMLTable"
+    ]
+  },
+  {
+    "qName": "HTMLTable Region Population",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "ReportType_HTMLTable"
+    ]
+  },
+  {
+    "qName": "Population",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "TestData"
+    ]
+  },
+  {
+    "qName": "Region",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "TestData"
+    ]
+  },
+  {
+    "qName": "State",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "TestData"
+    ]
+  }
+]

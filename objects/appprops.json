@@ -6,7 +6,10 @@
         "qType": "appprops"
       },
       "qMetaDef": {},
-      "sheetTitleBgColor": "",
+      "sheetTitleBgColor": {
+        "color": "#ffffff",
+        "index": 1
+      },
       "sheetTitleGradientColor": "",
       "sheetTitleColor": "",
       "sheetLogoThumbnail": {

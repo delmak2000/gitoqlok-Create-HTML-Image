@@ -1,12 +1,12 @@
-///$tab Environment Variables
+///$tab Main
 SET ThousandSep=',';
 SET DecimalSep='.';
 SET MoneyThousandSep=',';
 SET MoneyDecimalSep='.';
-SET MoneyFormat='#,##0.00; (#,##0.00)';
+SET MoneyFormat='$#,##0.00;-$#,##0.00';
 SET TimeFormat='h:mm:ss TT';
-SET DateFormat='DD/MM/YYYY';
-SET TimestampFormat='DD/MM/YYYY h:mm:ss[.fff] TT';
+SET DateFormat='M/D/YYYY';
+SET TimestampFormat='M/D/YYYY h:mm:ss[.fff] TT';
 SET FirstWeekDay=6;
 SET BrokenWeeks=1;
 SET ReferenceDay=0;
@@ -18,9 +18,7 @@ SET LongMonthNames='January;February;March;April;May;June;July;August;September;
 SET DayNames='Mon;Tue;Wed;Thu;Fri;Sat;Sun';
 SET LongDayNames='Monday;Tuesday;Wednesday;Thursday;Friday;Saturday;Sunday';
 SET NumericalAbbreviation='3:k;6:M;9:G;12:T;15:P;18:E;21:Z;24:Y;-3:m;-6:μ;-9:n;-12:p;-15:f;-18:a;-21:z;-24:y';
-
-
-///$tab Test Data
+///$tab Data
 // Data:
 // LOAD
 //     "Date",
@@ -59,7 +57,8 @@ NoConcatenate
 ReportType_HTMLImage:
 LOAD
 	Region 				as [HTMLImage Region],
-    sum(Population) 	as [HTMLImage Region Population],
+    sum(Population) 	as [HTMLImage Region Population]
+    ,
     round((sum(Population) / 1000), 1/1) 	as [HTMLImage Region Population Label]     
 RESIDENT TestData    
 GROUP BY Region
@@ -67,11 +66,11 @@ GROUP BY Region
 ///$tab Create HTML - Table
 //create table in HTML
 
-TableOutput:
+HTMLOutput:
 LOAD
-	[<!--TableOutput-->]
+	[<!--HTMLOutput-->]
 INLINE [
-<!--TableOutput-->
+<!--HTMLOutput-->
 <html>
 <head>
 <meta http-equiv=refresh content=10>
@@ -89,89 +88,6 @@ table {border-right:1px solid #555555;border-bottom:1px solid #555555;border-col
 ];
 
 
-CONCATENATE(TableOutput)
-LOAD
-	'<tr><td>' & [HTMLTable Region] &
-    '</td><td>' & replace([HTMLTable Region Population], ',', '&#44;') & '</td></tr>' as [<!--TableOutput-->]
-RESIDENT ReportType_HTMLTable
-ORDER BY [HTMLTable Region Population] DESC
-;
-
-// Append any footer information required to complete the HTML table
-CONCATENATE(TableOutput)
-LOAD
-	[<!--TableOutput-->]
-INLINE [
-<!--TableOutput-->
-</table>
-</body>
-</html>
-];
-
-
-
-
-STORE TableOutput INTO [lib://Datasources-HTML/TableOutput.html] (txt);
-///$tab Create HTML - Image
-//create image chart in HTML
-
-ImageOutput:
-LOAD
-// 	replace(
-    replace('<meta http-equiv=refresh content=10><img src="https://image-charts.com/chart?chbr=0&chco=0080ff&chd=a%3A' & concat([HTMLImage Region Population], '%2C') & '&chdl=Region%20Population&chdlp=r&chl='&concat([HTMLImage Region Population Label], '%7C')&'&chs=700x450&cht=bvs&chtt=Region%20Population&chxl=0%3A%7C' & concat([HTMLImage Region], '%7C') & '&chxs=1N%2A0sz%2A%2C000000&chxt=x%2Cy" alt="Static Chart"/>', '"', '')
-//     , ',', '&#44;')  
-    as [<!--ImageOutput-->]
-RESIDENT ReportType_HTMLImage
-;
-
-
-STORE ImageOutput INTO [lib://Datasources-HTML/ImageOutput.html] (txt);
-
-
-///$tab Create HTML - Image + Table
-// NoConcatenate
-
-//create image chart and table in HTML
-
-HTMLOutput:
-LOAD
-	[<!--HTMLOutput-->]
-INLINE [
-<!--HTMLOutput-->
-<html>
-<head>
-<style>
-tr:first-child td {font-weight: bold;background-color: #dddddd;}
-h3 {Font-family: Arial;Font-size: 12pt;}
-td {border-left:1px solid #555555;border-top:1px solid #555555;font-family: Arial;font-size:12pt;text-align:left;padding: 2px 10px 2px 10px;}
-table {border-right:1px solid #555555;border-bottom:1px solid #555555;border-collapse:collapse;}
-</style>
-</head>
-<body>
-<h3>Find the Report Details below</h3>
-];
-
-
-CONCATENATE(HTMLOutput)
-LOAD
-// 	replace(
-    replace('<img src="https://image-charts.com/chart?chbr=0&chco=0080ff&chd=a%3A' & concat([HTMLImage Region Population], '%2C') & '&chdl=Region%20Population&chdlp=r&chl='&concat([HTMLImage Region Population Label], '%7C')&'&chs=700x450&cht=bvs&chtt=Region%20Population&chxl=0%3A%7C' & concat([HTMLImage Region], '%7C') & '&chxs=1N%2A0sz%2A%2C000000&chxt=x%2Cy" alt="Static Chart"/>', '"', '')
-//     , ',', '&#44;')  
-    as [<!--HTMLOutput-->]
-RESIDENT ReportType_HTMLImage
-;
-
-
-CONCATENATE(HTMLOutput)
-LOAD
-	[<!--HTMLOutput-->]
-INLINE [
-<!--HTMLOutput-->
-<table>
-<tr><td>Region</td><td>Region Population</td></tr>
-];
-
-
 CONCATENATE(HTMLOutput)
 LOAD
 	'<tr><td>' & [HTMLTable Region] &
@@ -181,7 +97,7 @@ ORDER BY [HTMLTable Region Population] DESC
 ;
 
 // Append any footer information required to complete the HTML table
-CONCATENATE(TableOutput)
+CONCATENATE(HTMLOutput)
 LOAD
 	[<!--HTMLOutput-->]
 INLINE [
@@ -192,13 +108,6 @@ INLINE [
 ];
 
 
-
-STORE HTMLOutput INTO [lib://Datasources-HTML/HTMLOutput.html] (txt);
-
-
-///$tab Drop Table
-// Drop Tables ReportType_HTMLTable, ReportType_HTMLImage;
-///$tab Keep
 // HTMLOutput:
 // LOAD
 // // 	replace(replace([<!DOCTYPE html>], chr(39), '&#39;'), chr(44), '&#44;') as [<!DOCTYPE html>]
@@ -216,3 +125,40 @@ STORE HTMLOutput INTO [lib://Datasources-HTML/HTMLOutput.html] (txt);
 // </html>
 // ]
 // ;
+
+STORE HTMLOutput INTO [lib://Datasources-HTML/HTMLOutput.html] (txt);
+///$tab Create HTML - Image
+/*
+<script src="https://gist.github.com/delmak2000/2c746ada15a21ac3368a5e9ad8bd3823.js"></script>
+
+<img src="https://image-charts.com/chart?chbr=0&chco=0080ff&
+chd=a%3A' & concat([HTMLImage Region Population], '%2C') & '&  ---inserts the region population data
+chdl=Region%20Population& - ---inserts the region population chart label
+chdlp=r&
+chl='&concat([HTMLImage Region Population Label], '%7C')&'& ---inserts the region poulation value label
+chs=700x450&
+cht=bvs&
+chtt=Region%20Population& ---inserts the region population data
+chxl=0%3A%7C' & concat([HTMLImage Region], '%7C') & '& ---inserts the region label
+chxs=1N%2A0sz%2A%2C000000&
+chxt=x%2Cy" alt="Static Chart"/>
+
+PS - the concat is used to format the data in an array rather than in a column
+
+*/
+
+
+
+ImageOutput:
+LOAD
+// 	replace(
+    replace('<meta http-equiv=refresh content=10><img src="https://image-charts.com/chart?chbr=0&chco=0080ff&chd=a%3A' & concat([HTMLImage Region Population], '%2C') & '&chdl=Region%20Population&chdlp=r&chl='&concat([HTMLImage Region Population Label], '%7C')&'&chs=700x450&cht=bvs&chtt=Region%20Population&chxl=0%3A%7C' & concat([HTMLImage Region], '%7C') & '&chxs=1N%2A0sz%2A%2C000000&chxt=x%2Cy" alt="Static Chart"/>', '"', '')
+//     , ',', '&#44;')  
+    as [<!--ImageOutput-->]
+RESIDENT ReportType_HTMLImage
+;
+
+
+STORE ImageOutput INTO [lib://Datasources-HTML/ImageOutput.html] (txt);
+///$tab Drop Table
+// Drop Tables ReportType_HTMLTable, ReportType_HTMLImage;

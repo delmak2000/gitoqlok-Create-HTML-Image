@@ -1,1 +1,1 @@
-Environment Variables%tab_file_order_divider%Test Data%tab_file_order_divider%Create Report%tab_file_order_divider%Create HTML - Table%tab_file_order_divider%Create HTML - Image%tab_file_order_divider%Create HTML - Image + Table%tab_file_order_divider%Drop Table%tab_file_order_divider%Keep
+Main%tab_file_order_divider%Data%tab_file_order_divider%Create Report%tab_file_order_divider%Create HTML - Table%tab_file_order_divider%Create HTML - Image%tab_file_order_divider%Drop Table

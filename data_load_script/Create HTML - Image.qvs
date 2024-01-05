@@ -1,5 +1,24 @@
 ///$tab Create HTML - Image
-//create image chart in HTML
+/*
+<script src="https://gist.github.com/delmak2000/2c746ada15a21ac3368a5e9ad8bd3823.js"></script>
+
+<img src="https://image-charts.com/chart?chbr=0&chco=0080ff&
+chd=a%3A' & concat([HTMLImage Region Population], '%2C') & '&  ---inserts the region population data
+chdl=Region%20Population& - ---inserts the region population chart label
+chdlp=r&
+chl='&concat([HTMLImage Region Population Label], '%7C')&'& ---inserts the region poulation value label
+chs=700x450&
+cht=bvs&
+chtt=Region%20Population& ---inserts the region population data
+chxl=0%3A%7C' & concat([HTMLImage Region], '%7C') & '& ---inserts the region label
+chxs=1N%2A0sz%2A%2C000000&
+chxt=x%2Cy" alt="Static Chart"/>
+
+PS - the concat is used to format the data in an array rather than in a column
+
+*/
+
+
 
 ImageOutput:
 LOAD

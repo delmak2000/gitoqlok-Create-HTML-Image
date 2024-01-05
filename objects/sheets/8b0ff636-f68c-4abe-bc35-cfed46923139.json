@@ -6,7 +6,7 @@
     },
     "qMetaDef": {
       "title": "HTML",
-      "description": "Display the HTML output created via the load script editor"
+      "description": ""
     },
     "rank": -1,
     "thumbnail": {
@@ -22,27 +22,41 @@
         "type": "table",
         "col": 0,
         "row": 0,
-        "colspan": 12,
+        "colspan": 9,
         "rowspan": 12,
         "bounds": {
           "y": 0,
           "x": 0,
-          "width": 50,
+          "width": 37.5,
           "height": 100
         }
       },
       {
         "name": "mUmJLvb",
         "type": "table",
-        "col": 12,
+        "col": 9,
         "row": 0,
-        "colspan": 12,
-        "rowspan": 12,
+        "colspan": 10,
+        "rowspan": 6,
         "bounds": {
           "y": 0,
-          "x": 50,
-          "width": 50,
-          "height": 100
+          "x": 37.5,
+          "width": 41.66666666666667,
+          "height": 50
+        }
+      },
+      {
+        "name": "gzQm",
+        "type": "text-image",
+        "col": 9,
+        "row": 6,
+        "colspan": 10,
+        "rowspan": 6,
+        "bounds": {
+          "y": 50,
+          "x": 37.5,
+          "width": 41.66666666666667,
+          "height": 50
         }
       }
     ],
@@ -58,14 +72,14 @@
         "key": "general",
         "auto": false,
         "bgImage": {
-          "mode": "none",
+          "mode": "media",
           "mediaUrl": {
             "qStaticContentUrlDef": {
-              "qUrl": "/media/HTML/html-1.jpg"
+              "qUrl": "/media/HTML/html-2.jpg"
             }
           },
           "sizing": "original",
-          "position": "bottom-right"
+          "position": "top-right"
         }
       }
     ]
@@ -202,7 +216,7 @@
           "sorting": "auto"
         },
         "showTitles": true,
-        "title": "HTML Output - Table",
+        "title": "",
         "subtitle": "",
         "footnote": "",
         "disableNavMenu": false,
@@ -222,27 +236,7 @@
           "wrapTextInHeaders": true,
           "wrapTextInCells": true
         },
-        "visualization": "table",
-        "components": [
-          {
-            "key": "general",
-            "bgImage": {
-              "mode": "media",
-              "mediaUrl": {
-                "qStaticContentUrlDef": {
-                  "qUrl": "/media/HTML/html-1.jpg"
-                }
-              }
-            },
-            "bgColor": {
-              "useColorExpression": false,
-              "color": {
-                "index": 1,
-                "color": "#ffffff"
-              }
-            }
-          }
-        ]
+        "visualization": "table"
       },
       "qChildren": []
     },
@@ -377,7 +371,7 @@
           "sorting": "auto"
         },
         "showTitles": true,
-        "title": "HTML Output - Image Chart",
+        "title": "",
         "subtitle": "",
         "footnote": "",
         "disableNavMenu": false,
@@ -397,27 +391,56 @@
           "wrapTextInHeaders": true,
           "wrapTextInCells": true
         },
-        "visualization": "table",
-        "components": [
-          {
-            "key": "general",
-            "bgImage": {
-              "mode": "media",
-              "mediaUrl": {
-                "qStaticContentUrlDef": {
-                  "qUrl": "/media/HTML/html-1.jpg"
-                }
-              },
-              "sizing": "originalSize"
-            },
-            "bgColor": {
-              "color": {
-                "index": 1,
-                "color": "#ffffff"
-              }
-            }
-          }
-        ]
+        "visualization": "table"
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "gzQm",
+          "qType": "text-image"
+        },
+        "qMetaDef": {},
+        "qHyperCubeDef": {
+          "qDimensions": [],
+          "qMeasures": [],
+          "qInterColumnSortOrder": [],
+          "qInitialDataFetch": [],
+          "qReductionMode": "N",
+          "qMode": "S",
+          "qPseudoDimPos": -1,
+          "qNoOfLeftDims": -1,
+          "qMaxStackedCells": 5000,
+          "qCalcCond": {},
+          "qTitle": {},
+          "qCalcCondition": {
+            "qCond": {},
+            "qMsg": {}
+          },
+          "qColumnOrder": [],
+          "qExpansionState": [],
+          "qDynamicScript": []
+        },
+        "script": "",
+        "showTitles": false,
+        "title": "",
+        "subtitle": "",
+        "footnote": "",
+        "disableNavMenu": false,
+        "showDetails": true,
+        "showDetailsExpression": false,
+        "components": null,
+        "responsive": "all",
+        "markdown": "",
+        "images": [],
+        "background": {
+          "isUsed": false,
+          "size": "auto",
+          "position": "topLeft",
+          "url": {}
+        },
+        "visualization": "text-image"
       },
       "qChildren": []
     }

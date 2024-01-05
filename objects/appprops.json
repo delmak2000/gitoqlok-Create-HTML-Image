@@ -6,16 +6,11 @@
         "qType": "appprops"
       },
       "qMetaDef": {},
-      "sheetTitleBgColor": {
-        "color": "#ffffff",
-        "index": 1
-      },
+      "sheetTitleBgColor": "",
       "sheetTitleGradientColor": "",
       "sheetTitleColor": "",
       "sheetLogoThumbnail": {
-        "qStaticContentUrlDef": {
-          "qUrl": "/media/HTML/html-2.jpg"
-        }
+        "qStaticContentUrlDef": {}
       },
       "sheetLogoPosition": "",
       "rtl": false,

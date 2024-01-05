@@ -6,12 +6,12 @@
     },
     "qMetaDef": {
       "title": "HTML",
-      "description": ""
+      "description": "Display the HTML output created via the load script editor"
     },
     "rank": -1,
     "thumbnail": {
       "qStaticContentUrlDef": {
-        "qUrl": "/media/HTML/html-1.jpg"
+        "qUrl": "/media/HTML/sheet_thumb_8b0ff636-f68c-4abe-bc35-cfed46923139-0.5725580871978782.png"
       }
     },
     "columns": 24,
@@ -22,26 +22,26 @@
         "type": "table",
         "col": 0,
         "row": 0,
-        "colspan": 9,
+        "colspan": 12,
         "rowspan": 12,
         "bounds": {
           "y": 0,
           "x": 0,
-          "width": 37.5,
+          "width": 50,
           "height": 100
         }
       },
       {
         "name": "mUmJLvb",
         "type": "table",
-        "col": 9,
+        "col": 12,
         "row": 0,
-        "colspan": 10,
+        "colspan": 12,
         "rowspan": 12,
         "bounds": {
           "y": 0,
-          "x": 37.5,
-          "width": 41.66666666666667,
+          "x": 50,
+          "width": 50,
           "height": 100
         }
       }
@@ -58,14 +58,14 @@
         "key": "general",
         "auto": false,
         "bgImage": {
-          "mode": "media",
+          "mode": "none",
           "mediaUrl": {
             "qStaticContentUrlDef": {
-              "qUrl": "/media/HTML/html-2.jpg"
+              "qUrl": "/media/HTML/html-1.jpg"
             }
           },
           "sizing": "original",
-          "position": "top-right"
+          "position": "bottom-right"
         }
       }
     ]
@@ -202,7 +202,7 @@
           "sorting": "auto"
         },
         "showTitles": true,
-        "title": "",
+        "title": "HTML Output - Table",
         "subtitle": "",
         "footnote": "",
         "disableNavMenu": false,
@@ -222,7 +222,27 @@
           "wrapTextInHeaders": true,
           "wrapTextInCells": true
         },
-        "visualization": "table"
+        "visualization": "table",
+        "components": [
+          {
+            "key": "general",
+            "bgImage": {
+              "mode": "media",
+              "mediaUrl": {
+                "qStaticContentUrlDef": {
+                  "qUrl": "/media/HTML/html-1.jpg"
+                }
+              }
+            },
+            "bgColor": {
+              "useColorExpression": false,
+              "color": {
+                "index": 1,
+                "color": "#ffffff"
+              }
+            }
+          }
+        ]
       },
       "qChildren": []
     },
@@ -357,7 +377,7 @@
           "sorting": "auto"
         },
         "showTitles": true,
-        "title": "",
+        "title": "HTML Output - Image Chart",
         "subtitle": "",
         "footnote": "",
         "disableNavMenu": false,
@@ -377,7 +397,27 @@
           "wrapTextInHeaders": true,
           "wrapTextInCells": true
         },
-        "visualization": "table"
+        "visualization": "table",
+        "components": [
+          {
+            "key": "general",
+            "bgImage": {
+              "mode": "media",
+              "mediaUrl": {
+                "qStaticContentUrlDef": {
+                  "qUrl": "/media/HTML/html-1.jpg"
+                }
+              },
+              "sizing": "originalSize"
+            },
+            "bgColor": {
+              "color": {
+                "index": 1,
+                "color": "#ffffff"
+              }
+            }
+          }
+        ]
       },
       "qChildren": []
     }

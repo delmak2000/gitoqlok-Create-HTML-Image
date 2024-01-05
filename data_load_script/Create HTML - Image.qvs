@@ -1,4 +1,6 @@
 ///$tab Create HTML - Image
+//create image chart in HTML
+
 ImageOutput:
 LOAD
 // 	replace(

@@ -3,6 +3,6 @@
   "qThumbnail": {
     "qUrl": "/media/HTML/qlik+html.jpg"
   },
-  "description": "",
+  "description": "Sample Qlik sense app to create HTML files for data in table format and Image Chart",
   "dynamicColor": "hsla(171,18%,43%,1)"
 }

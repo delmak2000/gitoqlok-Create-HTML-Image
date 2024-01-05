@@ -1,11 +1,11 @@
 ///$tab Create HTML - Table
 //create table in HTML
 
-HTMLOutput:
+TableOutput:
 LOAD
-	[<!--HTMLOutput-->]
+	[<!--TableOutput-->]
 INLINE [
-<!--HTMLOutput-->
+<!--TableOutput-->
 <html>
 <head>
 <meta http-equiv=refresh content=10>
@@ -23,42 +23,26 @@ table {border-right:1px solid #555555;border-bottom:1px solid #555555;border-col
 ];
 
 
-CONCATENATE(HTMLOutput)
+CONCATENATE(TableOutput)
 LOAD
 	'<tr><td>' & [HTMLTable Region] &
-    '</td><td>' & replace([HTMLTable Region Population], ',', '&#44;') & '</td></tr>' as [<!--HTMLOutput-->]
+    '</td><td>' & replace([HTMLTable Region Population], ',', '&#44;') & '</td></tr>' as [<!--TableOutput-->]
 RESIDENT ReportType_HTMLTable
 ORDER BY [HTMLTable Region Population] DESC
 ;
 
 // Append any footer information required to complete the HTML table
-CONCATENATE(HTMLOutput)
+CONCATENATE(TableOutput)
 LOAD
-	[<!--HTMLOutput-->]
+	[<!--TableOutput-->]
 INLINE [
-<!--HTMLOutput-->
+<!--TableOutput-->
 </table>
 </body>
 </html>
 ];
 
 
-// HTMLOutput:
-// LOAD
-// // 	replace(replace([<!DOCTYPE html>], chr(39), '&#39;'), chr(44), '&#44;') as [<!DOCTYPE html>]
-// // 	replace([<!DOCTYPE html>], chr(34), '&#34;') as [<!DOCTYPE html>]
-// [<!DOCTYPE html>]
-// INLINE [
-// <!DOCTYPE html>
-// <html>
-//  <head>
-//    <meta http-equiv=refresh content=10; url=http://localhost:4848/dev-hub/>
-//  </head>
-//  <body>
-//    <p>You will be redirected to example.com soon!</p>
-//  </body>
-// </html>
-// ]
-// ;
 
-STORE HTMLOutput INTO [lib://Datasources-HTML/HTMLOutput.html] (txt);
+
+STORE TableOutput INTO [lib://Datasources-HTML/TableOutput.html] (txt);

@@ -3,9 +3,11 @@
     "qName": "<!--HTMLOutput-->",
     "qTags": [
       "$ascii",
-      "$text"
+      "$text",
+      "$key"
     ],
     "qSrcTables": [
+      "TableOutput",
       "HTMLOutput"
     ]
   },
@@ -17,6 +19,16 @@
     ],
     "qSrcTables": [
       "ImageOutput"
+    ]
+  },
+  {
+    "qName": "<!--TableOutput-->",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "TableOutput"
     ]
   },
   {

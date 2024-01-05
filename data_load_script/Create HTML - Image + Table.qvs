@@ -1,0 +1,66 @@
+///$tab Create HTML - Image + Table
+// NoConcatenate
+
+//create image chart and table in HTML
+
+HTMLOutput:
+LOAD
+	[<!--HTMLOutput-->]
+INLINE [
+<!--HTMLOutput-->
+<html>
+<head>
+<style>
+tr:first-child td {font-weight: bold;background-color: #dddddd;}
+h3 {Font-family: Arial;Font-size: 12pt;}
+td {border-left:1px solid #555555;border-top:1px solid #555555;font-family: Arial;font-size:12pt;text-align:left;padding: 2px 10px 2px 10px;}
+table {border-right:1px solid #555555;border-bottom:1px solid #555555;border-collapse:collapse;}
+</style>
+</head>
+<body>
+<h3>Find the Report Details below</h3>
+];
+
+
+CONCATENATE(HTMLOutput)
+LOAD
+// 	replace(
+    replace('<img src="https://image-charts.com/chart?chbr=0&chco=0080ff&chd=a%3A' & concat([HTMLImage Region Population], '%2C') & '&chdl=Region%20Population&chdlp=r&chl='&concat([HTMLImage Region Population Label], '%7C')&'&chs=700x450&cht=bvs&chtt=Region%20Population&chxl=0%3A%7C' & concat([HTMLImage Region], '%7C') & '&chxs=1N%2A0sz%2A%2C000000&chxt=x%2Cy" alt="Static Chart"/>', '"', '')
+//     , ',', '&#44;')  
+    as [<!--HTMLOutput-->]
+RESIDENT ReportType_HTMLImage
+;
+
+
+CONCATENATE(HTMLOutput)
+LOAD
+	[<!--HTMLOutput-->]
+INLINE [
+<!--HTMLOutput-->
+<table>
+<tr><td>Region</td><td>Region Population</td></tr>
+];
+
+
+CONCATENATE(HTMLOutput)
+LOAD
+	'<tr><td>' & [HTMLTable Region] &
+    '</td><td>' & replace([HTMLTable Region Population], ',', '&#44;') & '</td></tr>' as [<!--HTMLOutput-->]
+RESIDENT ReportType_HTMLTable
+ORDER BY [HTMLTable Region Population] DESC
+;
+
+// Append any footer information required to complete the HTML table
+CONCATENATE(TableOutput)
+LOAD
+	[<!--HTMLOutput-->]
+INLINE [
+<!--HTMLOutput-->
+</table>
+</body>
+</html>
+];
+
+
+
+STORE HTMLOutput INTO [lib://Datasources-HTML/HTMLOutput.html] (txt);
